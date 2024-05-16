@@ -1,0 +1,232 @@
+-- DDl Commands
+-- CREATE, ALTER, DROP, TRUNCATE, RENAME are the DDL Commands
+-- creating a table
+CREATE TABLE student(	
+id INT PRIMARY KEY,   
+sname VARCHAR(30),   
+gpa DECIMAL(3,2));
+-- ----or-----
+CREATE TABLE student( 
+	id INT,
+    sname VARCHAR(30),
+    gpa DECIMAL(3,2),
+    PRIMARY KEY(id)
+);
+ 
+DROP TABLE student; -- drops the table (everything will get deleted including stucture)
+Truncate TABLE student; -- truncates the table (Table structure will remail only the data will go)
+DESCRIBE student; -- describes the columns in the table student
+ 
+ 
+-- alter commands for  columns
+-- 1.To add new column
+ALTER TABLE student ADD department VARCHAR(5); --  or --- Adds a new column department to the student table
+ 
+-- 2.To drop an existing column
+ALTER TABLE student DROP COLUMN department; --  drops the department column from student table
+-- ---or---
+ALTER TABLE student DROP department; -- same as above
+ 
+-- 3.To rename an existing column
+ALTER TABLE student RENAME COLUMN gpa to cgpa;
+ 
+ 
+-- 4.To modify the column's datatype
+ALTER TABLE student MODIFY COLUMN sname varchar(30);
+-- or below --
+ALTER TABLE student MODIFY  sname varchar(40);
+has context menu
+
+
+-- DML Commands
+-- Insert,update, delete
+select * from student;
+INSERT INTO student VALUES(1,"Aarthi",7.6);
+INSERT INTO student VALUES(2,"Anitha",8.5); -- inserts a row. give values in column order
+ 
+INSERT INTO student VALUES
+(3,"Anitha",8.5),
+(4,"Arul",8.2),
+(5,"Ashwin",7.6); -- inserts more than one row
+ 
+INSERT INTO student(id,sname) VALUES(5,"Balaji"),(6,"Chandru"); -- inserts specific columns.
+
+
+-- DDl Commands
+-- CREATE, ALTER, DROP, TRUNCATE, RENAME are the DDL Commands
+-- creating a table
+CREATE TABLE student(	
+id INT PRIMARY KEY,   
+sname VARCHAR(30),   
+gpa DECIMAL(3,2));
+-- ----or-----
+CREATE TABLE student( 
+	id INT,
+    sname VARCHAR(30),
+    gpa DECIMAL(3,2),
+    PRIMARY KEY(id)
+);
+ 
+DROP TABLE student; -- drops the table (everything will get deleted including stucture)
+Truncate TABLE student; -- truncates the table (Table structure will remail only the data will go)
+DESCRIBE student; -- describes the columns in the table student
+ 
+ 
+-- alter commands for  columns
+-- 1.To add new column
+ALTER TABLE student ADD department VARCHAR(5); --  or --- Adds a new column department to the student table
+ 
+-- 2.To drop an existing column
+ALTER TABLE student DROP COLUMN department; --  drops the department column from student table
+-- ---or---
+ALTER TABLE student DROP department; -- same as above
+ 
+-- 3.To rename an existing column
+ALTER TABLE student RENAME COLUMN gpa to cgpa;
+ 
+ 
+-- 4.To modify the column's datatype
+ALTER TABLE student MODIFY COLUMN sname varchar(30);
+-- or below --
+ALTER TABLE student MODIFY  sname varchar(40);
+ 
+ 
+-- ----------------------------------------------------------------------
+CREATE TABLE employee (
+emp_id INT PRIMARY KEY AUTO_INCREMENT,
+ename VARCHAR(30) NOT NULL,
+job_desc VARCHAR(20),
+salary INT,
+branch_id INT,
+CONSTRAINT FK_branchId FOREIGN KEY(branch_id) REFERENCES branch(branch_id)
+);
+ 
+-- ----------------------------------------------------------------------
+CREATE TABLE branch (
+branch_id INT PRIMARY KEY AUTO_INCREMENT,
+br_name VARCHAR(30) NOT NULL,
+addr VARCHAR(200) );
+-- DML Commands -- Insert,update, delete ... by Maria (Unverified)
+Maria (Unverified)
+11:43 AM
+-- DML Commands
+-- Insert,update, delete
+select * from student;
+select * from branch;
+select * from employee;
+INSERT INTO student VALUES(1,"Aarthi",7.6);
+INSERT INTO student VALUES(2,"Anitha",8.5); -- inserts a row. give values in column order
+ 
+INSERT INTO student VALUES
+(3,"Anitha",8.5),
+(4,"Arul",8.2),
+(5,"Ashwin",7.6); -- inserts more than one row
+ 
+INSERT INTO student(id,sname) VALUES(5,"Balaji"),(6,"Chandru"); -- inserts specific columns.
+ 
+-- --------------------------------------------------------------------------------------------------
+INSERT INTO branch VALUES(1,"Chennai","16 ABC Road");
+INSERT INTO branch VALUES(2,"Coimbatore","120 15th Block");
+INSERT INTO branch VALUES(3,"Mumbai","25 XYZ Road");
+INSERT INTO branch VALUES(4,"Hydrabad","32 10th Street");
+-- ---------------------------------------------------------------------------------------------------
+INSERT INTO employee VALUES(1,'Ram','ADMIN',1000000,2);
+INSERT INTO employee VALUES(2,'Harini','MANAGER',2500000,2);
+INSERT INTO employee VALUES(3,'George','SALES',2000000,1);
+INSERT INTO employee VALUES(4,'Ramya','SALES',1300000,2);
+INSERT INTO employee VALUES(5,'Meena','HR',2000000,3);
+INSERT INTO employee VALUES(6,'Ashok','MANAGER',3000000,1);
+INSERT INTO employee VALUES(7,'Abdul','HR',2000000,1);
+INSERT INTO employee VALUES(8,'Ramya','ENGINEER',1000000,2);
+INSERT INTO employee VALUES(9,'Raghu','CEO',8000000,3);
+INSERT INTO employee VALUES(10,'Arvind','MANAGER',2800000,3);
+INSERT INTO employee VALUES(11,'Akshay','ENGINEER',1000000,1);
+INSERT INTO employee VALUES(12,'John','ADMIN',2200000,1);
+INSERT INTO employee VALUES(13,'Abinaya','ENGINEER',2100000,2);
+INSERT INTO employee VALUES(14,'Vidya','ADMIN',2200000,NULL);
+INSERT INTO employee VALUES(15,'Ranjani','ENGINEER',2100000,NULL);
+-- ----------------------------------------------------------------------------------------------------------------------
+ 
+INSERT INTO branch VALUES(1,"Chennai","16 ABC Road");
+INSERT INTO branch VALUES(2,"Coimbatore","120 15th Block");
+INSERT INTO branch VALUES(3,"Mumbai","25 XYZ Road");
+INSERT INTO branch VALUES(4,"Hydrabad","32 10th Street");
+-- -----------------------------------------------------------------------------------------------------------------------
+
+
+-- Update and delete in employee table
+UPDATE employee
+SET job_desc = "Analyst";  -- updates all job_desc of all rows to "Analyst" when safe update not enabled
+ 
+UPDATE employee
+SET job_desc = "Analyst"
+WHERE job_desc = "Engineer"; -- changes Engineer to Analyst in all applicable rows
+ 
+UPDATE employee
+SET job_desc = "Analyst"
+WHERE emp_id=1;
+ 
+DELETE FROM employee; -- deletes all rows
+ 
+DELETE from employee
+WHERE emp_id = 12;
+ 
+ 
+/* To off sql safe update
+SHOW VARIABLES LIKE 'sql_safe_updates';
+SET sql_safe_updates=0;
+*/
+-- Constraints  NOT NULL, AUTO_INCREMENT, D... by Maria (Unverified)
+Maria (Unverified)
+11:43 AM
+-- Constraints  NOT NULL, AUTO_INCREMENT, DEFAULT, CHECK, UNIQUE
+ 
+CREATE TABLE employee (
+emp_id INT PRIMARY KEY AUTO_INCREMENT, -- id will be auto incremented for new rows
+ename VARCHAR(30) NOT NULL, -- null value cannot be inserted for the column
+job_desc VARCHAR(20) DEFAULT 'unassigned', -- sets default when not mentioned
+salary INT,
+pan VARCHAR(10) UNIQUE, -- cannot contain duplicates
+CHECK (salary>100000));
+ 
+INSERT INTO employee(ename,salary) VALUES ('Ramya',1000000);
+INSERT INTO employee(ename,salary) VALUES ('Riya',10000); -- erros because of violation of salary check constraint
+INSERT INTO employee(salary) VALUES (1000000);
+SELECT * FROM employee;
+ 
+ 
+ 
+-- Foreign key is a field in one table referring to the primary key of another table.
+-- drop previously created tables and create a branch table
+CREATE TABLE branch (
+branch_id INT PRIMARY KEY AUTO_INCREMENT,
+br_name VARCHAR(30) NOT NULL,
+addr VARCHAR(200) );
+ 
+-- create employee table with branch_id as foreign key. It refers to the branch_id of branch table.
+CREATE TABLE employee (
+emp_id INT PRIMARY KEY,
+ename VARCHAR(30),
+job_desc VARCHAR(20),
+salary INT,
+branch_id INT,
+CONSTRAINT FK_branchId FOREIGN KEY(branch_id) REFERENCES branch(branch_id));
+ 
+-- droping FK
+ALTER TABLE employee
+DROP FOREIGN KEY FK_branchId;
+-- Index   SHOW INDEX FROM employee; -- sho... by Maria (Unverified)
+Maria (Unverified)
+11:44 AM
+-- Index
+ 
+SHOW INDEX FROM employee; -- show current indices
+ 
+CREATE INDEX name_index ON employee(ename); -- creates a new index
+ 
+ALTER TABLE employee
+DROP INDEX name_index; -- drop index
+ 
+ALTER TABLE employee
+ADD INDEX(ename); -- create index using alter command
+has context menu

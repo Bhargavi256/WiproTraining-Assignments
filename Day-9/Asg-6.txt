@@ -1,0 +1,156 @@
+select USER,HOST from MySQL.user;
++------------------+-----------+
+| USER             | HOST      |
++------------------+-----------+
+| mysql.infoschema | localhost |
+| mysql.session    | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
++------------------+-----------+
+4 rows in set (0.01 sec)
+
+mysql>
+mysql> SHOW GRANTS;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for root@localhost                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `root`@`localhost` WITH GRANT OPTION                                                                                                                                                                                                                                                                                                                                                                 |
+| GRANT APPLICATION_PASSWORD_ADMIN,AUDIT_ABORT_EXEMPT,AUDIT_ADMIN,AUTHENTICATION_POLICY_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CLONE_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,FIREWALL_EXEMPT,FLUSH_OPTIMIZER_COSTS,FLUSH_STATUS,FLUSH_TABLES,FLUSH_USER_RESOURCES,GROUP_REPLICATION_ADMIN,GROUP_REPLICATION_STREAM,INNODB_REDO_LOG_ARCHIVE,INNODB_REDO_LOG_ENABLE,PASSWORDLESS_USER_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_APPLIER,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SENSITIVE_VARIABLES_OBSERVER,SERVICE_CONNECTION_ADMIN,SESSION_VARIABLES_ADMIN,SET_USER_ID,SHOW_ROUTINE,SYSTEM_USER,SYSTEM_VARIABLES_ADMIN,TABLE_ENCRYPTION_ADMIN,XA_RECOVER_ADMIN ON *.* TO `root`@`localhost` WITH GRANT OPTION |
+| GRANT PROXY ON ``@`` TO `root`@`localhost` WITH GRANT OPTION                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+mysql> create user 'bhargavi@localhost';
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show grants for bhargavi@localhost;
+ERROR 1141 (42000): There is no such grant defined for user 'bhargavi' on host 'localhost'
+mysql> select USER,HOST from MySQL.user;
++--------------------+-----------+
+| USER               | HOST      |
++--------------------+-----------+
+| bhargavi@localhost | %         |
+| mysql.infoschema   | localhost |
+| mysql.session      | localhost |
+| mysql.sys          | localhost |
+| root               | localhost |
++--------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create user bhargavi1@localhost IDENTIFIED BY 'bhargavi@1234';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show grants fro bhargavi1@localhost;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fro bhargavi1@localhost' at line 1
+mysql> show grants for bhargavi1@localhost;
++-----------------------------------------------+
+| Grants for bhargavi1@localhost                |
++-----------------------------------------------+
+| GRANT USAGE ON *.* TO `bhargavi1`@`localhost` |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+----------------------------Command Promt ---------------
+
+C:\Users\sudha>C:\Program Files\MySQL\MySQL Server 8.0\bin
+'C:\Program' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\sudha>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>MySQL -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show grants;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for root@localhost                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `root`@`localhost` WITH GRANT OPTION                                                                                                                                                                                                                                                                                                                                                                 |
+| GRANT APPLICATION_PASSWORD_ADMIN,AUDIT_ABORT_EXEMPT,AUDIT_ADMIN,AUTHENTICATION_POLICY_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CLONE_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,FIREWALL_EXEMPT,FLUSH_OPTIMIZER_COSTS,FLUSH_STATUS,FLUSH_TABLES,FLUSH_USER_RESOURCES,GROUP_REPLICATION_ADMIN,GROUP_REPLICATION_STREAM,INNODB_REDO_LOG_ARCHIVE,INNODB_REDO_LOG_ENABLE,PASSWORDLESS_USER_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_APPLIER,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SENSITIVE_VARIABLES_OBSERVER,SERVICE_CONNECTION_ADMIN,SESSION_VARIABLES_ADMIN,SET_USER_ID,SHOW_ROUTINE,SYSTEM_USER,SYSTEM_VARIABLES_ADMIN,TABLE_ENCRYPTION_ADMIN,XA_RECOVER_ADMIN ON *.* TO `root`@`localhost` WITH GRANT OPTION |
+| GRANT PROXY ON ``@`` TO `root`@`localhost` WITH GRANT OPTION                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+3 rows in set (0.00 sec)
+
+
+------------MySQL Command line---------------------------
+mysql> show grants for bhargavi@localhost;
+ERROR 1141 (42000): There is no such grant defined for user 'bhargavi' on host 'localhost'
+mysql> select USER,HOST from MySQL.user;
++--------------------+-----------+
+| USER               | HOST      |
++--------------------+-----------+
+| bhargavi@localhost | %         |
+| mysql.infoschema   | localhost |
+| mysql.session      | localhost |
+| mysql.sys          | localhost |
+| root               | localhost |
++--------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create user bhargavi1@localhost IDENTIFIED BY 'bhargavi@1234';
+Query OK, 0 rows affected (0.01 sec)
+
+ show grants for bhargavi1@localhost;
++-----------------------------------------------+
+| Grants for bhargavi1@localhost                |
++-----------------------------------------------+
+| GRANT USAGE ON *.* TO `bhargavi1`@`localhost` |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grant all privileges on *.* to 'bhargavi1'@'localhost' with grant option;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show grants for bhargavi1@localhost;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for bhargavi1@localhost                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `bhargavi1`@`localhost` WITH GRANT OPTION                                                                                                                                                                                                                                                                                                                                                                 |
+| GRANT APPLICATION_PASSWORD_ADMIN,AUDIT_ABORT_EXEMPT,AUDIT_ADMIN,AUTHENTICATION_POLICY_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CLONE_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,FIREWALL_EXEMPT,FLUSH_OPTIMIZER_COSTS,FLUSH_STATUS,FLUSH_TABLES,FLUSH_USER_RESOURCES,GROUP_REPLICATION_ADMIN,GROUP_REPLICATION_STREAM,INNODB_REDO_LOG_ARCHIVE,INNODB_REDO_LOG_ENABLE,PASSWORDLESS_USER_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_APPLIER,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SENSITIVE_VARIABLES_OBSERVER,SERVICE_CONNECTION_ADMIN,SESSION_VARIABLES_ADMIN,SET_USER_ID,SHOW_ROUTINE,SYSTEM_USER,SYSTEM_VARIABLES_ADMIN,TABLE_ENCRYPTION_ADMIN,XA_RECOVER_ADMIN ON *.* TO `bhargavi1`@`localhost` WITH GRANT OPTION |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke all privileges;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> revoke all privileges on grant option from bhargavi1@localhost;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'grant option from bhargavi1@localhost' at line 1
+mysql> revoke all privileges to grant option from bhargavi1@localhost;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'to grant option from bhargavi1@localhost' at line 1
+mysql> revoke all privileges on *.* from 'bhargavi1'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show grants for bhargavi1@localhost;
++-----------------------------------------------+
+| Grants for bhargavi1@localhost                |
++-----------------------------------------------+
+| GRANT USAGE ON *.* TO `bhargavi1`@`localhost` |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select USER,HOST from MySQL.user;
++--------------------+-----------+
+| USER               | HOST      |
++--------------------+-----------+
+| bhargavi@localhost | %         |
+| bhargavi1          | localhost |
+| mysql.infoschema   | localhost |
+| mysql.session      | localhost |
+| mysql.sys          | localhost |
+| root               | localhost |
++--------------------+-----------+
+6 rows in set (0.00 sec)
+mysql> drop user 'bhargavi1'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+
