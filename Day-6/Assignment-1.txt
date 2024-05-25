@@ -1,0 +1,27 @@
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git init
+Initialized empty Git repository in C:/Users/sudha/Videos/sampleGitFolder/.git/
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git remote add origin https://github.com/Bhargavi256/SampleRepository.git
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git add .
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git commit -m "first commit"
+[master (root-commit) 7a986de] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt.txt
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 245 bytes | 245.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Bhargavi256/SampleRepository.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+sudha@ChintuChikky MINGW64 ~/Videos/

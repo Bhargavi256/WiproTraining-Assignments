@@ -1,0 +1,14 @@
+Assignment 6: Given a sample log file, write a script using grep to extract all lines containing "ERROR". Use awk to print the date, time, and error message of each extracted line.
+Data Processing with sed
+
+ mkdir log_processing
+bhargavi@ChintuChikky:~$ cd log_processing
+bhargavi@ChintuChikky:~/log_processing$ nano sample.log
+bhargavi@ChintuChikky:~/log_processing$ grep "ERROR" sample.log
+2024-05-27 12:34:56 ERROR: Something went wrong
+2024-05-28 13:45:57 ERROR: Another error occurred
+bhargavi@ChintuChikky:~/log_processing$ grep "ERROR" sample.log>errors.log
+bhargavi@ChintuChikky:~/log_processing$ awk '{print $1,$2,$0}' errors.log
+2024-05-27 12:34:56 2024-05-27 12:34:56 ERROR: Something went wrong
+2024-05-28 13:45:57 2024-05-28 13:45:57 ERROR: Another error occurred
+bhargavi@ChintuChikky:~/log_processing$

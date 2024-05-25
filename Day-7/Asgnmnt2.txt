@@ -1,0 +1,28 @@
+Assignment 2: Write a script that reads numbers from the user until they enter '0'. The script should also print whether each number is odd or even.
+ 
+ # Function to check if a number is odd or even
+bhargavi@ChintuChikky:~$ check_odd_even() {
+>   if [ $(( $1 % 2 )) -eq 0 ]; then
+cho "$>     echo "$1 is even"
+>   else
+>     echo "$1 is odd"
+>   fi
+}> }
+bhargavi@ChintuChikky:~$ # Loop to read numbers from the user
+bhargavi@ChintuChikky:~$ while true; do
+>   echo -n "Enter a number (0 to quit): "
+>   read number
+>   if [ "$number" -eq 0 ]; then
+>     echo "Exiting..."
+  break
+>     break
+  fi
+  c>   fi
+>   check_odd_even "$number"
+> done
+Enter a number (0 to quit): 2
+2 is even
+Enter a number (0 to quit): 3
+3 is odd
+Enter a number (0 to quit): 0
+

@@ -1,0 +1,33 @@
+Assignment 7: Create a script that takes a text file and replaces all occurrences of "old_text" with "new_text". Use sed to perform this operation and output the result to a new file.
+
+ vi input_file.txt
+bhargavi@ChintuChikky:~$ vi output_file.txt
+bhargavi@ChintuChikky:~$ # Check if the correct number of arguments is provided
+$#" -bhargavi@ChintuChikky:~$ if [ "$#" -ne 4 ]; then
+ echo ">     echo "Usage: $0 input_file old_text new_text output_file"
+#exit 1>     #exit 1
+> fi
+Usage: -bash input_file old_text new_text output_file
+bhargavi@ChintuChikky:~$
+bhargavi@ChintuChikky:~$ # Assign input arguments to variables
+put_filbhargavi@ChintuChikky:~$ input_file=$1
+bhargavi@ChintuChikky:~$ OLD_TEXT=$2
+bhargavi@ChintuChikky:~$ NEW_TEXT=$3
+OUTPbhargavi@ChintuChikky:~$ OUTPUT_FILE=$4
+bhargavi@ChintuChikky:~$
+ "s/bhabhargavi@ChintuChikky:~$  sed "s/bhargavi/asrutha/g" input_file.txt > output_file.txt
+ Print a messabhargavi@ChintuChikky:~$
+bhargavi@ChintuChikky:~$ # Print a message indicating the operation is complete
+eplacedbhargavi@ChintuChikky:~$ echo "Replaced all occurrences of 'bhargavi' with 'chikky' in output_file.txt and saved"
+Replaced all occurrences of 'bhargavi' with 'chikky' in output_file.txt and saved
+bhargavi@ChintuChikky:~$ cat input_file.txt
+hi bhargavi
+how are you bhargavi
+is it ok bhargavi
+bhargavi
+bhargavi@ChintuChikky:~$ cat output_file.txt
+hi asrutha
+how are you asrutha
+is it ok asrutha
+asrutha
+bhargavi@ChintuChikky:~$

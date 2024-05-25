@@ -1,0 +1,58 @@
+Assignment 5: Modify the script to handle errors, such as the directory already existing or lacking permissions to create files.
+Add a debugging mode that prints additional information when enabled.
+ 
+ # Set debugging mode (0 for off, 1 for on)
+bhargavi@ChintuChikky:~/TestDirOld$ DEBUG=1
+bhargavi@ChintuChikky:~/TestDirOld$
+bhargavi@ChintuChikky:~/TestDirOld$ # Function to print debug messages
+() {
+bhargavi@ChintuChikky:~/TestDirOld$ debug() {
+>   if [ $DEBUG -eq 1 ]; then
+>     echo "DEBUG: $1"
+>   fi
+> }
+
+# Crbhargavi@ChintuChikky:~/TestDirOld$
+bhargavi@ChintuChikky:~/TestDirOld$ # Create a directory named TestDirNew
+bhargavi@ChintuChikky:~/TestDirOld$ if mkdir -p TestDirNew 2>/dev/null; then
+>   debug "Directory 'TestDirNew' created or already exists."
+
+  echo > else
+>   echo "Error: Unable to create directory 'TestDirNew'. Check permissions."
+>   exit 1
+> fi
+hange tDEBUG: Directory 'TestDirNew' created or already exists.
+bhargavi@ChintuChikky:~/TestDirOld$
+o the Tbhargavi@ChintuChikky:~/TestDirOld$ # Change to the TestDirNew directory
+bhargavi@ChintuChikky:~/TestDirOld$ if cd TestDirNew; then
+>   debug "Changed to directory 'TestDirNew'."
+> else
+Error:>   echo "Error: Unable to change to directory 'TestDirNew'. Check permissions."
+>   exit 1
+> fi
+DEBUG: Changed to directory 'TestDirNew'.
+bhargavi@ChintuChikky:~/TestDirOld/TestDirNew$
+bhargavi@ChintuChikky:~/TestDirOld/TestDirNew$ # Loop to create 10 files
+bhargavi@ChintuChikky:~/TestDirOld/TestDirNew$ for i in {1..10}; do
+>   filename="File$i.txt"
+>   if echo "$filename" > "$filename" 2>/dev/null; then
+>     debug "File '$filename' created with content '$filename'."
+>   else
+>     echo "Error: Unable to create file '$filename'. Check permissions."
+>     exit 1
+>   fi
+> done
+ "Files created successfully in TestDirNew."
+DEBUG: File 'File1.txt' created with content 'File1.txt'.
+DEBUG: File 'File2.txt' created with content 'File2.txt'.
+DEBUG: File 'File3.txt' created with content 'File3.txt'.
+DEBUG: File 'File4.txt' created with content 'File4.txt'.
+DEBUG: File 'File5.txt' created with content 'File5.txt'.
+DEBUG: File 'File6.txt' created with content 'File6.txt'.
+DEBUG: File 'File7.txt' created with content 'File7.txt'.
+DEBUG: File 'File8.txt' created with content 'File8.txt'.
+DEBUG: File 'File9.txt' created with content 'File9.txt'.
+DEBUG: File 'File10.txt' created with content 'File10.txt'.
+bhargavi@ChintuChikky:~/TestDirOld/TestDirNew$
+bhargavi@ChintuChikky:~/TestDirOld/TestDirNew$ echo "Files created successfully in TestDirNew."
+Files created successfully in TestDirNew.

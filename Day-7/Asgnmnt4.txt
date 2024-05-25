@@ -1,0 +1,20 @@
+Assignment 4: Write a script that creates a directory named TestDir and inside it, creates ten files named File1.txt, File2.txt, ... File10.txt. Each file should contain its filename as its content (e.g., File1.txt contains "File1.txt").
+
+ # Create a directory named TestDirOld
+bhargavi@ChintuChikky:~$ mkdir -p TestDirOld
+bhargavi@ChintuChikky:~$
+bhargavi@ChintuChikky:~$ # Change to the TestDirOld directory
+bhargavi@ChintuChikky:~$ cd TestDirOld
+bhargavi@ChintuChikky:~/TestDirOld$
+bhargavi@ChintuChikky:~/TestDirOld$ # Loop to create 10 files
+bhargavi@ChintuChikky:~/TestDirOld$ for i in {1..10}; do
+>   filename="File$i.txt"
+>   echo "$filename" > "$filename"
+> done
+bhargavi@ChintuChikky:~/TestDirOld$
+bhargavi@ChintuChikky:~/TestDirOld$ echo "Files created successfully in TestDirOld."
+Files created successfully in TestDirOld.
+bhargavi@ChintuChikky:~/TestDirOld$ ls
+File1.txt   File2.txt  File4.txt  File6.txt  File8.txt  TestDirNew
+File10.txt  File3.txt  File5.txt  File7.txt  File9.txt
+bhargavi@ChintuChikky:~/TestDirOld$

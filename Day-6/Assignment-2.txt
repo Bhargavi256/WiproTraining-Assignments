@@ -1,0 +1,33 @@
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git branch feature
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (feature)
+$ git add .
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (feature)
+$ git commit -m "second commit"
+[feature b153ecf] second commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 second_file.txt
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (feature)
+$ git push -u origin feature
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 348 bytes | 348.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature' on GitHub by visiting:
+remote:      https://github.com/Bhargavi256/SampleRepository/pull/new/feature
+remote:
+To https://github.com/Bhargavi256/SampleRepository.git
+ * [new branch]      feature -> feature
+branch 'feature' set up to track 'origin/feature'.
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (feature)

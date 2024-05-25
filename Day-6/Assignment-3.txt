@@ -1,0 +1,45 @@
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (feature)
+$ git branch hotfix
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (feature)
+$ git checkout hotfix
+Switched to branch 'hotfix'
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (hotfix)
+$ git add .
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (hotfix)
+$ git commit -m "first file changes"
+[hotfix 36a3215] first file changes
+ 1 file changed, 1 insertion(+)
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (hotfix)
+$ git push -u origin hotfix
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 329 bytes | 329.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'hotfix' on GitHub by visiting:
+remote:      https://github.com/Bhargavi256/SampleRepository/pull/new/hotfix
+remote:
+To https://github.com/Bhargavi256/SampleRepository.git
+ * [new branch]      hotfix -> hotfix
+branch 'hotfix' set up to track 'origin/hotfix'.
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (hotfix)
+$ git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 903 bytes | 225.00 KiB/s, done.
+From https://github.com/Bhargavi256/SampleRepository
+   6d3e43b..4ef6a5f  master     -> origin/master
+Already up to date.
+
+sudha@ChintuChikky MINGW64 ~/Videos/sampleGitFolder (hotfix)
+$ git push -u origin hotfix
+Everything up-to-date
+branch 'hotfix' set up to track 'origin/hotfix'.
